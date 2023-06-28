@@ -1,0 +1,65 @@
+section {
+    width: 336px;
+    margin: auto;
+    margin-top: 150px;
+    height: 507px;
+    background-color: #fff;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: calc((336px - 280px) / 2);
+}
+
+/* 상품이미지 */
+.imgBox {
+    width: 280px;
+    height: 280px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.imgBox img {
+    width: 100%;
+}
+
+/* 상품설명 - 텍스트 */
+.productTxt {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.productTxt .txtBox {
+    width: 83%;
+}
+
+.productTxt .txtBox .name {
+    margin-bottom: 10px;
+}
+
+.productTxt .txtBox .price {
+    margin-bottom: 8px;
+}
+
+.productTxt .txtBox .price span {
+    font-weight: bold;
+}
+
+.productTxt .txtBox .delivery {
+    margin-bottom: 8px;
+}
+
+.productTxt .txtBox .delivery,
+.productTxt .txtBox .buyNum {
+    font-size: 14px;
+}
+
+/* 상품설명 - 아이콘 */
+.productTxt .iconBox {
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.productTxt .iconBox img {
+    width: 100%;
+}

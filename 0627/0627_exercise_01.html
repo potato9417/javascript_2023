@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // if-else
+        let money = prompt("점심 식대를 입력하세요 : ");
+        let lunch;
+
+        if (money !== "") {
+            if (money == null) {
+                console.log("점심식대입력을 취소하였습니다.");
+            }
+            else {
+                if (money >= 0 && money < 2000) {
+                    lunch = "다이어트 혹은 집에서 싸온 도시락";
+                }
+                else if (money < 3000) {
+                    lunch = "삼각김밥 혹은 컵라면";
+                }
+                else if (money < 4000) {
+                    lunch = "삼각김밥과 컵라면(소)";
+                }
+                else if (money < 5000) {
+                    lunch = "줄김밥과 컵라면(대)";
+                }
+                else if (money < 6000) {
+                    lunch = "편의점 도시락";
+                }
+                else if (money < 7000) {
+                    lunch = "편의점 도시락과 컵라면(소)";
+                }
+                else {
+                    lunch = "동네 식당 뷔페식 점심식사";
+                }
+                console.log(`if-else문 : ${money}원으로 ${lunch}을(를) 먹을수 있습니다.`);
+            }
+        }
+        else {
+            console.log("점심식대를 입력하지않았습니다.");
+        }
+    </script>
+
+    <script>
+        // switch
+        let lunch02;
+        let switchMoney = Math.floor(money / 1000);
+        // console.log("switchMoney의 값 : " + switchMoney + " // 타입 : " + typeof (switchMoney));
+
+        switch (switchMoney) {
+            case 0:
+            case 1: lunch02 = "다이어트 혹은 집에서 싸온 도시락";
+                break;
+            case 2: lunch02 = "삼각김밥 혹은 컵라면";
+                break;
+            case 3: lunch02 = "삼각김밥과 컵라면(소)";
+                break;
+            case 4: lunch02 = "줄김밥과 컵라면(대)";
+                break;
+            case 5: lunch02 = "편의점 도시락";
+                break;
+            case 6: lunch02 = "편의점 도시락과 컵라면(소)";
+                break;
+            default: lunch02 = "동네 식당 뷔페식 점심식사";
+                // console.log("switch")
+        }
+        console.log(`swtich문 : ${money}원으로 ${lunch02}을(를) 먹을수 있습니다.`);
+    </script>
+
+    <script>
+        // ?:
+        let lunch03;
+        result = (money >= 0 && money < 2000) ? lunch03 = "다이어트 혹은 집에서 싸온 도시락" :
+            (money < 3000) ? lunch03 = "삼각김밥 혹은 컵라면" :
+                (money < 4000) ? lunch03 = "삼각김밥과 컵라면(소)" :
+                    (money < 5000) ? lunch03 = "줄김밥과 컵라면(대)" :
+                        (money < 6000) ? lunch03 = "편의점 도시락" :
+                            (money < 7000) ? lunch03 = "편의점 도시락과 컵라면(소)" : lunch03 = "동네 식당 뷔페식 점심식사"
+
+        console.log(`삼항연산자 : ${money}원으로 ${lunch03}을(를) 먹을수 있습니다.`);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0623_01</title>
+</head>
+
+<body>
+    <script lang="javascript" charset="UTF-8">
+        // // 대화상자(dialog box, modal box, popup box) : 출력
+        // alert("메세지1"); // window.alert('메세지2'); // Window 라는 객체 소속의 alert 메서드 (객체 함수)
+        // // Window 객체 안의 속성/메서드는 객체(인스턴스)표현을 생략 가능
+
+
+        // // ------------------------------------------------------------------- //
+
+
+        // // confirm : 선택형 대화상자
+        // // 양자택일(alternative) -> true/false
+
+        // // if/else : 조건문(condition)
+        // // == : 동등 비교 연산자(operator)
+        // // 피연산자(operand) : 항
+        // if(confirm('삭제할꺼임?') == true){
+        //     console.log('삭제함')
+        // }
+        // else {
+        //     console.log('삭제안함')
+        // }
+        
+
+        // // ------------------------------------------------------------------- //
+
+
+        // // prompt : 입력형 대화상자
+        // var name = prompt('이름 입력 : ','감자');
+        // console.log('name : '+name);
+
+
+        // // ------------------------------------------------------------------- //
+
+
+        // // 가장 보편적인 로그(기록) 함수
+        // // 로그의 목적 : (비)정상적인 정보의 보고
+        // console.log('로그1'); 
+        // window.console.log('로그2');
+
+        // // log 레벨(level)
+        // // 저수준 <-- trace << debug << info << warn << error << critical --> 고수준
+        // // 언어에 따라서 레벨 수준 함수에 차이가 있다
+        // console.trace('trace');
+        // // trace 이상의 레벨을 모두 포함(trace~error) 출력
+        // console.debug('debug'); 
+        // // debug 이상의 레벨을 모두 포함(debug~error) 출력
+        // console.info('info'); 
+        // // info 이상의 레벨을 모두 포함(info~error) 출력
+        // console.warn('warn'); // 황색 경고
+        // // warn과 error 출력
+        // console.error('error'); // 적색 경고(위험, 금지)
+        // // error만 출력
+
+        // // dir(directory) : 경로(URL)
+        // console.dir('dir : ' + document.location);
+
+
+        // // ------------------------------------------------------------------- //
+
+
+        document.write('<h1>웹브라우저에 글쓰기</h1>');
+        // writeln => html에서 개행기능 안됨 텍스트 모드에서만 가능
+        window.document.writeln('<b>웹브라우저</b>에 글쓰기2 <br>');
+        window.document.writeln('웹브라우저에 글쓰기3');
+        // \n : 줄바꿈(개행)문자 (line-feed, line-break) => 텍스트모드에서는 가능 / html에서는 <br>태그 사용
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape
+    </script>
+</body>
+
+</html>

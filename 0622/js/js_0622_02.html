@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px 25px;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            border-radius: 15px;
+        }
+    </style>
+    <script>
+        // https://developer.mozilla.org/en-US/docs/Web/API/Window : window의 속성
+        // script가 <head>안에 있을 경우 <body>태그를 읽기전이라 오류발생
+        // window.onload : html 문서를 읽었을 때 이벤트 핸들러 함수를 실행한다
+        window.onload = function(){}
+    </script>
+</head>
+
+<body>
+    <h1>COLOR CHANGE</h1>
+
+    <script>
+        // 키워드(keyword : 예약어) -> function(함수), return(함수의 결과를 반환(리턴))
+        // random : 함수명 -> 기능에 맞게 명명(naming) ex) random(임의의 수 =난수)를 생성
+        // () : 매개변수((가)인자) 부분
+        // number : (가)인자 (매개변수)
+        // {} : 함수의 블럭(영역 : block)
+        // ; : 문장(statement)의 종결
+        // Math : 수학 기능들을 가진 클래스(객체)
+        // floor : Math 소속(멤버)의 내림기능 함수
+        // * : 사칙연산 중 곱셈 연산자(operator)
+
+        function random(number) {
+            const randomNum = Math.random();
+            return Math.floor(Math.random() * number);
+        }
+
+        // 함수의 호출(call)
+        // console.log(random(100)); 
+
+        // html 페이지의 배경색을 임의로 변경
+        function bgChange() {
+            // 상수(常數) : 불변하는 값을 가지는 변수, 변하지 않는 값 => constant
+            // = : 대입(입력) 연산자
+            // + : 문자열 연결(concatnation) 연산자
+            const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+
+            console.log(rndCol)
+            // document.body => <html>태그 하위의 <body>태그 지칭
+
+            // https://developer.mozilla.org/en-US/docs/Web/API/Document : Documnet의 속성
+            // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style : HTMLElement의 속성
+
+            // <html>태그 하위의 <body>태그의 style속성
+            // Document -> HTMLBodyElement -> style속성 (HTMLElement의 속성 => 상속되기때문에)
+            // css : background-color(kebab case) / js : backgroundColor(camel-case)
+            document.body.style.backgroundColor = rndCol;
+        }
+        bgChange();
+
+
+    </script>
+</body>
+
+</html>

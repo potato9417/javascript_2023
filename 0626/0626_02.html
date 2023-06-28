@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = prompt('입력');
+        console.log('str 자료형 : '+typeof(str));
+
+        // var result = str+1; // 문자열 연결연산
+        var result = Number(str)+1 // 수동 형변환(캐스팅)함수 사용 후 사칙연산
+        // 형변환 함수 (parse-, to-, value-)
+        // parseInt() : 전역(global) 형변환 함수
+        // Number() : 형변환 함수 : 클래스(형식 객체)의 생성자(함수)
+        // Number.parseInt() : Number 객체(클래스) 소속의 함수
+        console.log('결과 : '+result);
+
+        var num = Number('070'); // JAVA에서는 0으로 시작되는 숫자는 8진수
+        console.log(num);
+
+        // 화씨(f) -> 섭씨(c) 온도 변환기
+        let f = parseFloat(prompt('변환할 화씨 온도'));
+        let c = Math.round((f-32)/1.8);
+        // 올림 : Math.ceil(), 내림 : Math.floor(), 반올림 : Math.round()
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+        
+        let cc = ((f-32)/1.8).toFixed(1);
+        // 소수점 자릿수 조절 : .toFixed(n)
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
+
+        console.log(`화씨 ${f}도는 섭씨 ${c}도 입니다.`); // `${변수}` : 백틱(backtick)
+        console.log('화씨 ' +f+'도는 '+'섭씨 '+cc+'도 입니다.');
+    </script>
+</body>
+</html>

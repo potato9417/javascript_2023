@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // if-else
+        let promNum = prompt("숫자를 입력하세요 : ");
+        // prompt에 값을 입력하지않고 확인했을 경우 "" 빈 문자열이 입력됨
+        // prompt를 취소했을 경우 null값이 입력됨
+        console.log(typeof (promNum));
+
+        if (promNum !== "") {
+            if (promNum == null) {
+                console.log("입력을 취소했습니다.");
+            }
+            else {
+                let num = parseInt(promNum);
+                if (num % 2 === 0) {
+                    console.log(`${num}은 2의 배수입니다.`);
+                }
+                else {
+                    console.log(`${num}은 2의 배수가 아닙니다.`);
+                }
+            }
+
+        }
+        else {
+            console.log("입력된 값이 없습니다.");
+        }
+
+
+        // switch
+        let switchNum = (parseInt(promNum)) % 2;
+        console.log(switchNum + "--" + typeof (switchNum));
+
+        switch (switchNum) {
+            case 0: console.log(`${promNum}은 2의 배수입니다.`);
+                break;
+            case 1: console.log(`${promNum}은 2의 배수가 아닙니다.`);
+                break;
+            default: console.log("입력값이 없습니다.");
+        }
+
+        
+        // ?:
+        let num = parseInt(prompt("숫자를 입력하세요 : "));
+        console.log(num)
+
+        let result = (num%2==0) ? console.log("2의배수") : console.log("2의배수가아님");
+
+    </script>
+
+
+</body>
+
+</html>
