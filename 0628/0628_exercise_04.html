@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let i = 2;
+        let j = 1;
+        loop1:
+        while (i > 1 && i <= 9) {
+            console.log(`==========${i}단============`)
+            loop2:
+            while (j >= 1 && j <= 9) {
+                // console.log(j)
+                console.log(`${i}x${j}= ${i * j}`);
+                j++
+            }
+            j=1; // 안의 while문의 j값이 이미 9가 되었으므로 1로 바꿔줘야 while이 활성화됨
+            i++
+        }
+    </script>
+</body>
+
+</html>

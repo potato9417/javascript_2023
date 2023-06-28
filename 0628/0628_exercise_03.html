@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script>
+        let sum;
+        while (true) {
+            let num = prompt("구구단 입력 : ex)3\n※ 프로그램 종료시 exit를 입력하세요.");
+
+            if (isNaN(num) == false) {
+                if (num > 1 && num < 10) {
+                    console.clear() // 콘솔창을 깨끗하게
+
+                    for (i = 1; i < 10; i++) {
+                        sum = parseInt(num) * i;
+                        console.log(sum)
+                    }
+                }
+                else {
+                    console.clear() // 콘솔창을 깨끗하게
+                    console.log("2~9사이의 숫자를 입력하세요.")
+                    break;
+                }
+
+            }
+            else if (num.trim().toLowerCase() == "exit") {
+                console.clear() // 콘솔창을 깨끗하게
+                console.log("프로그램을 종료하겠습니다.");
+                break;
+            }
+            else {
+                console.clear() // 콘솔창을 깨끗하게
+                console.log("잘못된 입력입니다.");
+                break;
+            }
+        }
+    </script> -->
+    <script>
+        /*
+            문) 입력부에서 특정(n) 단을 입력받아서 출력하는 구문을 작성하십시오.
+    
+            출력 예시) 
+            3 x 1 = 3
+            3 x 2 = 6
+            ...
+            3 x 9 = 27
+        */    
+        loop1:    
+        while(true) {
+    
+            // 구구단 단 입력
+            // 문-1) 
+            // TODO
+            var times = prompt("구구단 입력 : ex) 3\n※ 프로그램 종료시 exit를 입력하세요.");
+            
+            // 문-2) exit를 입력하였을 때 
+            // "프로그램을 종료하겠습니다" 라는 대화창으로 메시징 후 
+            // 기존 콘솔의 결과를 삭제하고(clear 함수 활용)
+            // 프로그램을 종료합니다(무한반복문에서 완전 분기).
+            // TODO
+            if (times.trim() == 'exit') {
+    
+                alert('프로그램을 종료하겠습니다.');
+                // 기존의 콘솔 결과 삭제(콘솔 초기화)
+                console.clear();
+                break loop1;
+    
+            // 문-2) 입력단 범위 점검 : 2~9단 사이만 입력되도록 조치하는데
+            // 역시 기존의 콘솔 결과를 지우고(clear)
+            // 해당 단의 구구단을 console에 출력합니다.
+            // TODO
+            } else if (times >= 2 && times <= 9) {
+    
+                // console.log("2~9사이의 정수 입력");
+                // 기존의 콘솔 결과 삭제(콘솔 초기화)
+                console.clear();
+    
+                times = parseInt(times);
+    
+                // 특정 단 구구단 인쇄
+                // 출력 예시) 
+                // 3 x 1 = 3
+                // 3 x 2 = 6
+                // ...
+                // 3 x 9 = 27
+                for (var i = 1; i <= 9; i++) {
+    
+                    console.log(`${times} X ${i} = ${times * i}`);
+    
+                } //
+    
+            } else {
+                alert("구구단은 2~9단 사이의 자연수를 입력하십시오.");            
+            }   
+    
+        } // while 
+        </script>
+</body>
+
+</html>
