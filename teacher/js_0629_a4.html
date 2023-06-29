@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    /*
+        문) 아래의 결과 예시와 같이 합계를 출력하는 함수를 작성하십시오.
+    */
+    // TODO
+
+    function calc(...nums) {
+
+        console.log("nums : " + nums);
+
+        var result = 0;
+
+        for (var n of nums) {
+            result += n;
+        }
+
+        return result;
+    } 
+
+    /*
+    let calc = (...nums) => { 
+
+            // console.log("nums의 자료형 : " + typeof(nums));
+            // console.log("nums의 길이 : " + nums.length); // 배열
+
+            let result = 0;
+
+            for (var idx in nums) {
+                result += nums[idx];
+            }
+
+            return result;
+    } */
+
+    // forEach 함수 : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+    /*
+    let calc = (...nums) => {
+        
+        let result = 0;
+
+        nums.forEach(function(n){
+            result += n;
+        });
+        
+        return result;
+    }; */
+
+    // reduce 함수 : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+    // let calc = (...nums) => nums.reduce((acc, currVal) => acc + currVal, 0);
+
+    /*
+        결과예시) 
+
+        합계 : 6
+        합계 : 28
+        합계 : 55
+    */
+    document.write(`합계 : ${calc(1,2,3)}<br>`);
+    document.write(`합계 : ${calc(1,2,3,4,5,6,7)}<br>`);
+    document.write(`합계 : ${calc(1,2,3,4,5,6,7,8,9,10)}<br>`);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
