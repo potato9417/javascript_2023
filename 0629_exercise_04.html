@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let result01 = 0;
+        let result02 = 0;
+        let result03=0;
+
+        function sum01(n) {
+            for (i = n; i > 0; i--) {
+                result01 += i
+            }
+            return console.log(result01)
+        }
+        sum01(10)
+
+        function sum02(n) {
+            while (n > 0) {
+                result02 += n;
+                n--;
+            }
+
+            return console.log(result02)
+        }
+
+        sum02(10)
+
+        // 가변인자
+        function sum03(...nums){
+            console.log(nums)
+            for(var n of nums){
+                result03+=n;
+            }
+            return console.log(result03)
+        }
+        sum03(10,9,8,7,6,5,4,3,2,1)
+    </script>
+</body>
+
+</html>
