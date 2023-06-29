@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let result, a, b, c;
+        function calc(a, b, c) {
+            a = prompt("연산자를 입력하세요 ex) +");
+            b = prompt("숫자를 입력하세요.")
+            c = prompt("숫자를 입력하세요.")
+            console.log(a, b, c)
+
+            if (a == "+" || a == "-" || a == "%" || a == "/" || a == "*") {
+                if ((isNaN(b, c)) == false) {
+
+                    if (a == "+") {
+                        result = eval(b + a + c)
+                        console.log(result)
+                    }
+                    else if (a == "-") {
+                        result = eval(b + a + c)
+                        console.log(result)
+                    }
+                    else if (a == "*") {
+                        result = eval(b + a + c)
+                        console.log(result)
+                    }
+                    else if (a == "/") {
+                        result = eval(b + a + c)
+                        console.log(result)
+                    }
+                    else {
+                        result = eval(b + a + c)
+                        console.log(result)
+                    }
+
+                }
+                else {
+                    console.log("숫자가 아닙니다")
+                }
+            }
+
+
+            else {
+                console.log("연산자에 해당하는 연산이 존재하지않습니다.")
+            }
+        }
+        calc()
+    </script>
+</body>
+
+</html>

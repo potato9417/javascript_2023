@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 0.5;
+        }
+
+        .yellow {
+            color: #ff0;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let i, j;
+        let txt="";
+        console.log("역삼각형 만들기")
+        for (i = 1; i <= 7; i++) {
+            for (j = 1; j <= 7; j++) {
+                if (i<=j) {
+                // console.log(i+"----"+j)
+                    txt+="#"
+                }
+                else {
+                    txt+="0"
+                }
+            }
+            console.log(txt)
+            txt=""
+        }
+    </script>
+</body>
+
+</html>

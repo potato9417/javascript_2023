@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>클릭!</button>
+    <script>
+        const btn = document.querySelector("button");
+
+        // 화살표 함수(arrow function) : ES6부터
+        let display = () => {
+            alert("클릭!");
+        }
+        // 이벤트(event) : 장치에서 발생하는 현상 ex) click
+        // 이벤트 리스너(감지자 : listener) => 함수 : addEventListener
+        // 이벤트 핸들러(핸들링 함수 : handler) : 이벤트에 대한 후속 처리
+        btn.addEventListener("click",display); // 함수의 인자에서 함수 호출 => 콜백(call back) 함수
+
+        // 동일 작동
+        // btn.onClick = function(){
+        //     alert("클릭!");
+        // }
+    </script>
+</body>
+</html>
+

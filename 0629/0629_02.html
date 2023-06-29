@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function func01(a,b,c){
+        //     console.clear();
+        //     console.log("a = "+a);
+        //     console.log("b = "+b);
+        //     console.log("c = "+c);
+        // }
+        // func(1,2,3);
+        // func(1,2);
+        // func(1);
+
+
+        // 기본매개변수 사용
+        function func02(a,b=10,c=20){
+            console.clear();
+            console.log("a = "+a);
+            console.log("b = "+b);
+            console.log("c = "+c);
+        }
+        func02(1,2,3);
+        func02(1,2);
+        func02(1);
+    </script>
+</body>
+</html>

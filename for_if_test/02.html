@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 0.5;
+        }
+
+        .yellow {
+            color: #ff0;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let i, j;
+        let txt=""; // txt값을 지정해주지않으면 undefind가 뜸
+        console.log("삼각형만들기")
+
+        for (i = 1; i <= 7; i++) {
+            for (j = 1; j <= 7; j++) {
+                if (i>=j) {
+                // console.log(i+"----"+j)
+                    txt+="#"
+                }
+                else {
+                    txt+="0"
+                }
+            }
+            console.log(txt)
+            txt="" // txt를 빈값으로 해줘야 값이 계속 쌓이지않음
+        }
+    </script>
+</body>
+
+</html>

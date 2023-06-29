@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./sum.js"></script>
+</head>
+
+<body>
+    <script>
+        // function func(a){}; : 함수선언
+        // func(1); : 함수호출
+        // a : 매개변수(parameter), (형식)인자, 가(假)인자
+        // 1 : 실인자(argument), 인수
+        // 일반적으로 매개변수(parameter)와 실인자(argument)를 혼용해서 사용
+        // void : 결과값이 없는 경우
+        // return : 함수의 분기(종료) == break
+        // return 아래의 코드가 실행되지 않음 => 죽은 코드(dead code)
+        function calcSum(m, n) {
+            let sum = 0;
+            for (i = m; i <= n; i++) {
+                sum += i;
+            }
+            return sum; // 함수의 분기(종료) + 결과값
+        }
+        let num1 = parseInt(prompt("시작숫자를 입력하세요 : "));
+        let num2 = parseInt(prompt("마지막숫자를 입력하세요 : "));
+
+        let result = calcSum(num1, num2);
+        console.log(result);
+    </script>
+</body>
+
+</html>
