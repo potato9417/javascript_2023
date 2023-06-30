@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bootstrap 추가 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    /*
+        문) 아래에 주어진 조건과 같이 코드를 완성하십시오.
+    */
+    // 과목 점수 입력
+    function input(subject) {
+
+        let subjectScore = 0;
+
+        input_loop:
+        while(true) {
+
+            subjectScore = prompt(`${subject} 성적 입력 : `);    
+
+            if (isNaN(subjectScore)) {
+
+                alert("성적은 숫자로 입력하셔야 됩니다.");
+
+            } else {
+
+                if (subjectScore < 0 || subjectScore > 100) {
+
+                    alert("성적은 0~100 범위에서 입력하십시오.");
+
+                } else {
+
+                    break input_loop;   
+                }    
+            } //
+
+        }
+        
+        return subjectScore;
+    }    
+
+    // 합계 환산
+    function sumSubjects(kor, eng, math) {
+        // return parseInt(kor) + parseInt(eng) + parseInt(math);
+        return parseFloat(kor) + parseFloat(eng) + parseFloat(math);
+    }
+
+    // 평균 환산
+    function avgSubjects(sum, len, roundDigit=1) {
+        // return Math.round(sum / len);
+        let roundSquare = 10 ** (roundDigit - 1);
+        return Math.round((sum / len) * roundSquare) / roundSquare;
+    }
+
+    // 성적 입력 인원 수 입력
+    function inputNum() {
+
+        let num;
+
+        input_num_loop:
+        while(true) {
+
+            // TODO
+            num = prompt("성적 입력 인원 수 : 참고) 입력 종료시 exit를 입력하세요");
+
+            if (num.trim() == 'exit') {
+
+                num = "exit";
+                break input_num_loop;
+
+            } else if (isNaN(num)) {
+
+                alert("인원 수는 숫자를 입력하십시오.");
+
+            } else {
+
+                if (num < 0 || Number.isInteger(Number(num)) == false) {
+
+                    alert("인원 수는 자연수를 입력해야 됩니다.");
+
+                } else {
+
+                    break input_num_loop;
+                }
+
+            } // if
+
+        } // while
+
+        return num;
+    }
+
+    // 한글 음절 점검
+    function checkSyllable(name) {
+
+        let result = false;
+
+        let regexSyllable = new RegExp('[가-힣]{1}');
+
+        for (var i = 0; i < name.length; i++) {
+
+            if (regexSyllable.test(name.at(i)) == false) {
+                
+                alert("이름은 완성된 한글로 입력하십시오. ex) 홍길동");        
+                return false; // 한 음절만 문제가 되도 에러 처리    
+
+            } else { 
+                result = true;    
+            }
+        }
+
+        return result; 
+    }
+    
+    // 이름 입력
+    function inputName() {
+
+        let name = "";
+
+        name_loop:
+        while (true) {
+
+            name = prompt("학생 이름 입력 : ");
+
+            // 한글 이름 점검을 위해 먼저 모든 공백 소거(좌/우/중간)
+            name = name.trim().replaceAll(" ", "");
+
+            console.log("한글 점검을 위해 가공된 이름 : " + name);
+
+            const regexName = new RegExp('[가-힣]{2,}');
+            // 참고) 한국에서 가장 긴 이름 : 17자
+            // https://a77grd.tistory.com/entry/%EC%84%B8%EA%B3%84%EC%97%90%EC%84%9C-%EA%B0%80%EC%9E%A5-%EA%B8%B4-%EC%9D%B4%EB%A6%84%EA%B3%BC-%ED%95%9C%EA%B5%AD%EC%97%90%EC%84%9C-%EA%B0%80%EC%9E%A5-%EA%B8%B4-%EC%9D%B4%EB%A6%84
+
+            if (regexName.test(name)) {
+
+                // 2차 점검 : 각각의 음절들이 완전한 한글로 되어 있는지 점검
+
+                if (checkSyllable(name) == true) {
+                    alert("한글 이름입니다.");
+                    result = true;
+                    break name_loop;
+                } 
+
+            } else {
+
+                alert("이름은 한글로 입력하십시오.");                    
+            }
+
+        } // while    
+
+        return name;
+    }
+
+
+    // 추가
+    window.onload = function() {
+
+        // 다수 인원 성적 입력/집계
+        // 성적 입력 인원 수 입력토록 조치
+        input_loop2:
+        while(true) {
+
+            let num = inputNum();
+
+            console.log("num : " + num);
+
+            if (num == 'exit') {
+
+                alert("프로그램을 종료하겠습니다.");
+                break input_loop2;
+
+            } else if (num > 0) {
+
+                for (var i = 0; i < num; i++) {
+
+                    // 코드 추가) 학생 이름 입력
+                    // TODO
+                    let name = inputName();
+
+                    let kor = input("국어");    
+                    let eng = input("영어");
+                    let math = input("수학");
+
+                    // console.log("국어 성적 : " + kor);
+                    // console.log("영어 성적 : " + eng);
+                    // console.log("수학 성적 : " + math);
+                    console.log(`${name} 학생의 국어 성적 : ${kor}`);
+                    console.log(`${name} 학생의 영어 성적 : ${eng}`);
+                    console.log(`${name} 학생의 수학 성적 : ${math}`);
+
+                    let sum = sumSubjects(kor, eng, math);
+                    // alert(`${name} 학생의 국/영/수 성적 합계 : ${sum}`);
+
+                    let avg = avgSubjects(sum, 3, 2); // 3(과목수), 2(소수점 2자리에서 반올림)
+                    // alert(`${name} 학생의 국/영/수 성적 평균 : ${avg}`);
+
+                    // TODO
+                    // 성적 그리드 추가
+                    let tblGrid = document.querySelector("#score-grid tbody");
+                
+                    tblGrid.innerHTML += `<tr>
+                                            <td>${i+1}</td>
+                                            <td>${name}</td>
+                                            <td>${kor}</td>
+                                            <td>${eng}</td>
+                                            <td>${math}</td>
+                                            <td>${sum}</td>
+                                            <td>${avg}</td>
+                                        </tr>`;
+
+                } // for
+
+                if (confirm("계속 입력하시겠습니까?") == false) {
+
+                    alert("프로그램을 종료하겠습니다.");
+                    break input_loop2;
+                } //
+
+            } else {
+                alert("성적 입력 인원수를 입력하십시오.")
+            }
+
+        } // while    
+    } // onload
+    </script>
+</head>
+<body>
+    
+    <div style="height:100vh" class="w-100 bg-info d-flex justify-content-center align-items-center">
+        <div class="w-50">
+            <table id="score-grid" class="table mx-auto">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>학생명</th>
+                        <th>국어 성적</th>
+                        <th>영어 성적</th>
+                        <th>수학 성적</th>
+                        <th>성적 합계</th>
+                        <th>평균</th>
+                    </tr>            
+                </thead>
+
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
