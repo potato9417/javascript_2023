@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="result"></div>
+    <script>
+        var result = document.querySelector("#result")
+        var sum = 0;
+
+        function resultFunc(testClass) {
+            let n = 1;
+            let score = prompt("성적을 입력하세요");
+
+            loop1:
+            while (true) {
+                if (isNaN(score)) {
+                    console.log("숫자를 입력해주세요");
+                }
+                else {
+                    if (score >= 0 && score <= 100) {
+                        ;
+
+                        result.innerHTML = `${result.textContent} ${n}번 학생 ${testClass} : ${score}점`
+
+                    }
+                    else {
+                        console.log("성적은 0~100 범위내에서 입력하세요");
+                    }
+                }
+                break loop1;
+            }
+
+            return sum += Number(score);
+        }
+        function avgFunc(n){
+            avg = Math.round((sum/n)*(10**(n-1)))/10**(n-1)
+            result.innerHTML = result.textContent +" / 총 합계 : "+sum+" / 총 평균 "+avg
+        }
+
+        while (true) {
+            let num = 1;
+            let people = prompt("성적 입력 인원수 : \n입력종료시 exit를 입력하세요");
+            console.log(typeof (people))
+
+            if (people.trim() == "exit") {
+                console.log("종료하였습니다")
+                break;
+            }
+            else {
+
+                if (isNaN(people)) {
+                    console.log("인원수는 숫자로 입력하세요.");
+                    break;
+                }
+                else {
+
+                    if (people < 0 || Number.isInteger(Number(people)) == false) {
+                        console.log("인원수는 자연수를 입력해야 합니다.")
+                        break;
+                    }
+                    else {
+                        while (num <= people) {
+                            console.log(num + "----" + people);
+                            resultFunc("국어")
+                            resultFunc("영어")
+                            resultFunc("수학")
+                            num++
+                        }
+                        console.log(sum)
+                        avgFunc(people)
+                        break;
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

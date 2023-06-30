@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .inner {
+            width: 500px;
+            background-color: #fff;
+            border: 2px solid #e9e9e9;
+            border-radius: 20px;
+            margin: auto;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        input {
+            margin: auto;
+            width: 300px;
+            height: 25px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 15px;
+            border: none;
+            background-color: #e9e9e9;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        button {
+            width: 320px;
+            height: 45px;
+            text-align: center;
+            border: 2px solid #e9e9e9;
+            background-color: #fff;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #34a3ff;
+            border-color: #34a3ff;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="inner">
+        <input type="" placeholder="국어점수를 입력하세요" id="kor" name="국어">
+        <input type="" placeholder="영어점수를 입력하세요" id="eng" name="영어">
+        <input type="" placeholder="수학점수를 입력하세요" id="math" name="수학">
+        <button id="btn">확인</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        let btn = document.querySelector("button");
+        let result = document.getElementById("result");
+
+        let resultFunc = () => {
+            let kor = Number(document.getElementById("kor").value);
+            let eng = Number(document.getElementById("eng").value);
+            let math = Number(document.getElementById("math").value);
+            let korName = document.getElementById("kor").name;
+            let engName = document.getElementById("eng").name;
+            let mathName = document.getElementById("math").name;
+            let sum=0;
+            if (isNaN(kor) || isNaN(eng) || isNaN(math)) {
+                console.log("숫자를 입력해주세요");
+            }
+            else {
+                if (kor, eng, math >= 0 && kor, eng, math <= 100) {
+                    console.log(typeof(kor))
+                    sum = kor+eng+math
+
+                    avg = Math.round((sum/3)*(100))/100 // 평균값의 소수점 3자리수에서 반올림한 값계산
+
+                    result.innerText = `${korName} : ${kor}점 / ${engName} : ${eng}점 / ${mathName} : ${math}점 \n 합계 : ${sum} \n 평균값 : ${avg}`;
+                    
+
+                }
+                else {
+                    console.log("성적은 0~100 범위내에서 입력하세요")
+                }
+            }
+        }
+        btn.addEventListener("click", resultFunc)
+    </script>
+</body>
+
+</html>

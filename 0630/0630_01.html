@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">
+        <b>ab</b>cd
+    </div>
+    <script>
+        // id=div1인 태그 인식(제어)
+        // let div1 = document.querySelector("#div1");
+        // let div1 = document.querySelector("[id=div1]");
+        // let div1 = document.querySelectorAll("[id=div1]")[0];
+        let div1 = document.getElementById("div1");
+
+        // 태그의 텍스트 확인(get)
+        console.log("text : "+div1.innerText) // 텍스트만
+        console.log("html : "+div1.innerHTML) // 태그와 텍스트 같이
+        console.log("content : "+div1.textContent) // 텍스트만(소스모양대로 - 띄어쓰기 등)
+
+        // 내용 수정(set)
+        // div1.innerText = ""; // 태그 내용 초기화
+        // div1.innerText="java"; // 태그 내용 수정(대체)
+        // div1.innerText = div1.innerText+"java"; // 기존 텍스트에 내용 첨가
+        div1.innerHTML = div1.innerHTML+"java"; // 기존 html에 내용 첨가
+
+        // 스타일(CSS)
+        div1.style.backgroundColor= "#03A9F4"
+        div1.style.color = "#fff";
+        div1.style.fontSize = "32px";
+        div1.style.width = "250px";
+
+        // 속성(attribute) 추가
+        div1.setAttribute("contenteditable","true"); // 편집 가능 모드로 변환
+
+        // 태그 추가
+        let newDiv =document.createElement("div"); // div 추가
+        let newContent = document.createTextNode("환영"); // 텍스트 추가
+        // newDiv.appendChild(newContent);
+        let currentDiv = document.querySelector("div"); // div추가하기 전에 있던 기존의 #div1
+        document.body.insertBefore(newContent, currentDiv); // #div1 앞에 div추가 및 내용 추가
+    </script>
+</body>
+
+</html>
+
