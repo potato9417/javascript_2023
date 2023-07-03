@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        *:before,
+        *:after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        button {
+            background: none;
+            border: none;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        img {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 300px;
+        }
+
+        li {
+            width: 100%;
+            display: block;
+            line-height: 50px;
+            background-color: #ffd1d1;
+            cursor: pointer;
+        }
+
+        .depth01 a {
+            padding-left: 20px;
+        }
+
+
+        .depth01:nth-child(2) {
+            background-color: #c7e4ff;
+        }
+
+        .depth01:nth-child(3) {
+            background-color: #f6c7ff;
+        }
+
+        .depth02 {
+            /* position: absolute; */
+            top: 50px;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+        }
+
+        .depth02 li {
+            background-color: #fff;
+        }
+
+        .depth02.hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="depth01">
+                    <a href="#">면류</a>
+                    <ul class="depth02 hidden">
+                        <li><a href="#">짜장면</a></li>
+                        <li><a href="#">짬뽕</a></li>
+                        <li><a href="#">삼선짜장</a></li>
+                        <li><a href="#">삼선짬뽕</a></li>
+                    </ul>
+                </li>
+                <li class="depth01">
+                    <a href="#">밥류</a>
+                    <ul class="depth02 hidden">
+                        <li><a href="#">볶음밥</a></li>
+                        <li><a href="#">삼선볶음밥</a></li>
+                        <li><a href="#">잡채밥</a></li>
+                        <li><a href="#">매운새우볶음밥</a></li>
+                    </ul>
+                </li>
+                <li class="depth01">
+                    <a href="#">사천요리</a>
+                    <ul class="depth02 hidden">
+                        <li><a href="#">마라룽샤</a></li>
+                        <li><a href="#">마라샹궈</a></li>
+                        <li><a href="#">갼샤오밍샤</a></li>
+                        <li><a href="#">탄탄면</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        let depth01Arr = document.querySelectorAll(".depth01");
+        let depth02Arr = document.querySelectorAll(".depth02");
+
+        // 인덱스값찾기
+        depth01Arr.forEach((el,idx)=>{
+            console.log(el,idx)
+            depth01Arr[idx].onclick=()=>{
+                for(i=0;i<depth01Arr.length;i++){
+                    depth02Arr[i].classList.add("hidden")
+                }
+                // 클래스명을 토글하기
+                depth02Arr[idx].classList.toggle("hidden")
+            }
+        })
+    </script>
+</body>
+
+</html>

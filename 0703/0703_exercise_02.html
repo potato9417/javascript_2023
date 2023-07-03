@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <style>
+        *,
+        *:before,
+        *:after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        button {
+            background: none;
+            border: none;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        img {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 80%;
+            height: 100px;
+            background-color: #333;
+            padding-right: 300px;
+        }
+
+        nav>ul {
+            display: flex;
+        }
+
+        .showIcon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .modalContainer {
+            /* display: none; */
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modalBox {
+            position: absolute;
+            width: 260px;
+            height: 400px;
+            background-color: #fff;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .titleBox {
+            width: 100%;
+            padding: 0 10px;
+            background-color: #c9c9c9;
+            height: 45px;
+            line-height: 45px;
+            margin-bottom: 20px;
+            border-radius: 7px;
+        }
+
+        .titleBox span {
+            width: 8%;
+            display: inline-block;
+        }
+
+        .titleBox .calendar {
+            margin-right: 5px;
+        }
+
+        .titleBox .close {
+            cursor: pointer;
+        }
+
+        .titleBox .title {
+            width: 75%;
+        }
+
+        .txtBox textarea {
+            width: 100%;
+            height: 295px;
+            resize: none;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #aaa;
+        }
+    </style>
+</head>
+
+<body>
+    <i class="xi-external-link showIcon"></i>
+    <div class="modalContainer hidden">
+        <div class="modalBox">
+            <div class="titleBox">
+                <span><i class="xi-calendar calendar"></i></span>
+                <span class="title">제목</span>
+                <span><i class="xi-close close"></i></span>
+            </div>
+            <div class="txtBox">
+                <textarea name="txtBox" id="txtBox" maxlength="500" placeholder="글 내용입니다."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let showIcon = document.querySelector(".showIcon")
+        let close = document.querySelector(".close")
+        let modalContainer = document.querySelector(".modalContainer")
+
+        showIcon.onclick = () => {
+            modalContainer.classList.remove("hidden")
+        }
+        close.onclick = () => {
+            modalContainer.classList.add("hidden")
+        }
+    </script>
+</body>
+
+</html>
