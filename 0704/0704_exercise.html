@@ -74,31 +74,42 @@
         let saveBtn = document.querySelector(".btns .save");
         let saveBox = document.querySelector(".saveBox");
 
-        cancelBtn.onclick = () => {
-            console.log("삭제전")
+        // cancelBtn.onclick = () => {
+        //     console.log("삭제전")
             
-            //saveBox안의 자식태그(p)의 길이 찾기
-            let nodesLen = saveBox.childNodes.length;
-            while (nodesLen > 0) {
-                // 길이가 0일때는 반복문 탈출
-                if (nodesLen === 0) {
-                    console.log("탈출")
-                    break;
-                }
-                else {
-                    // console.log(nodesLen + "len")
-                    // console.log(saveBox.childNodes[0])
+        //     //saveBox안의 자식태그(p)의 길이 찾기
+        //     let nodesLen = saveBox.childNodes.length;
+        //     while (nodesLen > 0) {
+        //         // 길이가 0일때는 반복문 탈출
+        //         if (nodesLen === 0) {
+        //             console.log("탈출")
+        //             break;
+        //         }
+        //         else {
+        //             // console.log(nodesLen + "len")
+        //             // console.log(saveBox.childNodes[0])
 
-                    // 앞에 있는 p태그부터 삭제 반복
-                    saveBox.childNodes[0].remove();
-                    // console.log(saveBox.childNodes[i])}
+        //             // 앞에 있는 p태그부터 삭제 반복
+        //             saveBox.childNodes[0].remove();
+        //             // console.log(saveBox.childNodes[i])}
 
-                    // saveBox 자식들의 길이를 하나씩 줄여줌(위에서 삭제했기때문)
-                    nodesLen -= 1;
-                }
-                title.value = "";
-                name.value = "";
+        //             // saveBox 자식들의 길이를 하나씩 줄여줌(위에서 삭제했기때문)
+        //             nodesLen -= 1;
+        //         }
+        //         title.value = "";
+        //         name.value = "";
+        //     }
+        // }
+
+        cancelBtn.onclick = () => {
+            console.log("삭제 전");
+
+            while (saveBox.firstChild) {
+                saveBox.removeChild(saveBox.firstChild);
             }
+
+            title.value = "";
+            name.value = "";
         }
 
         saveBtn.onclick = () => {
