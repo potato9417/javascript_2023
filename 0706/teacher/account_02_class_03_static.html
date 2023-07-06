@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Javascript Test</title>
+	<script>
+		// 은행 계좌 입출력 프로그램 예시
+		class Account {
+
+			id = '';
+			name = '';
+			accountNo = '';
+			static money = 0; // 정적(static) 멤버 필드
+			static interest = 0.05; // 이자율(이율) %
+
+			constructor() {
+				console.log("통장 계좌 개설");
+			}
+
+			// 금액 입력
+			static input(inputType) {
+
+				console.log(inputType + " 금액 입금");
+
+				var money = prompt(inputType + " 금액을 입력하십시오 : ");
+
+				while (true) {
+
+					money = isNaN(money) ? 0 : parseInt(money);
+
+					if (money <= 0) {
+						money = prompt(inputType + " 금액을 입력하십시오 : ");
+					} else {
+						break;
+					}
+				} //
+
+				return money;
+			}
+
+			// 입금 실행
+			static deposit = function (money) {
+
+				console.log("--- 입금 처리 ---");
+				// this.money += money;
+				Account.money += money;
+			}
+
+			// 주의) static 메서드 구문 내에서는 this/super 등의 
+			// 동적(정적이 아닌 = 메모리 주소가 고정적이지 않은) 키워드
+			// 를 사용하면 가령 NaN(Not a Number) 등 원치 않는 결과가 유발됩니다.
+
+			// 그러나 부모(super) 클래스의 static 멤버 메서드가 있다면 
+			// 자녀 클래스가 static 메서더 내에서 super 키워드를 활용하여
+			// 부모 클래스의 static 메서드를 상속할 수 있음.
+
+			// 출금 실행
+			static withdraw = function (money) {
+
+				console.log("--- 출금 처리 ---");
+
+				// if (this.money < money) {
+				if (Account.money < money) {
+					alert("출금할 잔액이 적습니다.")
+					// } else if (this.money == 0) {
+				} else if (Account.money == 0) {
+					alert("잔액이 없습니다.");
+				} else {
+					// this.money -= money;
+					Account.money -= money;
+				}
+			}
+
+			// 이자 정산 실행
+			static calcInterest = function () {
+
+				console.log("--- 이자 정산  ---");
+				// this.money += this.money * this.interest;
+				Account.money += Account.money * Account.interest;
+			}
+
+			// 잔액 조회
+			static checkBalance = function () {
+
+				console.log("--- 잔액 인쇄 처리  ---");
+				// console.log("잔액 : " + this.money + "원");
+				// console.log("잔액 : " + money + "원");
+				console.log("잔액 : " + Account.money + "원");
+			}
+
+		} // class
+
+		// 실행
+		window.onload = function () {
+
+			// 생성자(constructor)와 new 연산자(객체 생성 연산자)를 통한 
+			// 클래스(Account:형식 객체)의 인스턴스(instance:실질 객체) 생성
+			// 참고로 정적 멤버 메서드 호출시에는 굳이 클래스의 인스턴스(실질 객체)
+			// 를 만들지 않아도 접근할 수 있음. 오히려 인스턴스를 사용하지 않는
+			// 것을 권장함.
+			// var account = new Account();
+
+			// 멤버 메서드 호출 : 정적(static) 메서드들 활용
+
+			// 입금 
+			// account.deposit(account.input('입금'));
+			Account.deposit(Account.input('입금'));
+
+			// 잔액 조회
+			// account.checkBalance();
+			Account.checkBalance();
+
+			// 출금
+			// account.withdraw(account.input('출금'));
+			Account.withdraw(Account.input('출금'));
+
+			// 잔액 조회
+			// account.checkBalance();
+			Account.checkBalance();
+
+			// 이자 정산
+			// account.calcInterest();
+			Account.calcInterest();
+
+			// 잔액 조회
+			// account.checkBalance(); 
+			Account.checkBalance();
+		}
+	</script>
+</head>
+
+<body>
+
+</body>
+
+</html>
