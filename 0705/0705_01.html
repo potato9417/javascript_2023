@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let numsArr = [];
+        let ranNum = 0;
+        let resultArr = []
+
+        // 1부터 37까지의 숫자를 배열에 넣기
+        for (i = 1; i <= 37; i++) {
+            numsArr.push(i);
+
+            // 37까지 숫자가 다들어갔을때
+            if (i == 37) {
+                // 랜덤 숫자를 7회 뽑기
+                for (j = 0; j < 7; j++) {
+                    // console.log(numsArr.length);
+                    // 랜덤 숫자 구하기 (numsArr의 길이만큼의 랜덤 숫자로 해야 numsArr안의 숫자 뺴올수있음)
+                    ranNum = Math.floor(Math.random() * numsArr.length);
+
+                    console.log(ranNum)
+                    // numsArr의 랜덤숫자 위치에 있는 값을 resultArr에 넣기
+                    resultArr.push(numsArr[ranNum]);
+
+                    // console.log(resultArr)
+                    // 기존 numsArr에 있던 값을 제거하여 중복되지않게 함
+                    numsArr.splice(ranNum,1);
+
+                    // numsArr의 길이를 줄이기
+                    numsArr.length--;
+                    // console.log(numsArr)
+                }
+            }
+        }
+        console.log(resultArr)
+    </script>
+</body>
+
+</html>
