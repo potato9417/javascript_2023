@@ -1,0 +1,23 @@
+#carouselContainer {
+    width: 50vw;
+    margin: auto;
+}
+.carousel-caption {
+    padding: 10px 10px 5px;
+    position: absolute;
+    top: 20%;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+}
+h5 {
+    font-weight: bold;
+    font-size: 1.4em;
+    margin-bottom: 20px;
+}
+p.sum {
+    font-size: 1em;
+    word-break: keep-all;
+    padding: 0 10px
+}
+p.price {
+    font-size: 1em;
+}
