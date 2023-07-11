@@ -66,37 +66,71 @@ var cookie_price = [
 
 // 반복문 돌려 안의 내용을 html에 적용
 let cookieSlide = document.querySelector(".carousel-inner");
+let cookieIndicator = document.querySelector(".carousel-indicators");
+let order_board = document.querySelector("#order_board");
+let priceBox = document.querySelectorAll(".priceBox input")
+let sumBox = document.querySelectorAll(".sumBox input")
+let quanNum = document.querySelectorAll(".quanBox input").values
+
 
 for (i = 0; i < cookie_price.length; i++) {
 
     // 첫번째 쿠키는 active클래스를 넣어 carousel을 활성화 하게 함
-    if(i==0) {
+    if (i == 0) {
         // innerHTML += : 기존의 값에 새로운 값을 추가
         cookieSlide.innerHTML +=
-        `
-        <div class="carousel-item active">
-            <img src="./images/${cookie_image_files[i]}.png" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>${cookie_image_files[i]}</h5>
-              <p class="sum">${cookie_text[i]}</p>
-              <p class="price">${cookie_price[i]}원</p>
+            `
+            <div class="carousel-item active">
+                <img src="./images/${cookie_image_files[i]}.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                <h5>${cookie_image_files[i]}</h5>
+                <p class="sum">${cookie_text[i]}</p>
+                <p class="price">${cookie_price[i]}원</p>
+                </div>
             </div>
-        </div>
-        `
+            `
+        cookieIndicator.innerHTML +=
+            `
+            <button type="button" data-bs-target="#carouselContainer" data-bs-slide-to="${i}" class="active" aria-current="true" aria-label="Slide ${i + 1}"></button>
+            `
     }
     else {
         cookieSlide.innerHTML +=
-        `
-        <div class="carousel-item">
-            <img src="./images/${cookie_image_files[i]}.png" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>${cookie_image_files[i]}</h5>
-              <p class="sum">${cookie_text[i]}</p>
-              <p class="price">${cookie_price[i]}원</p>
+            `
+            <div class="carousel-item">
+                <img src="./images/${cookie_image_files[i]}.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                <h5>${cookie_image_files[i]}</h5>
+                <p class="sum">${cookie_text[i]}</p>
+                <p class="price">${cookie_price[i]}원</p>
+                </div>
             </div>
-        </div>
-        `
+            `
+        cookieIndicator.innerHTML +=
+            `
+            <button type="button" data-bs-target="#carouselContainer" data-bs-slide-to="${i}" class="" aria-current="true" aria-label="Slide ${i + 1}"></button>
+            `
     }
-    console.log(i)
+    order_board.innerHTML +=
+        `
+        <tr>
+            <td width="200">
+                <input type='text' id='name${i}' class="form-control" name='name${i}' readonly value='${cookie_image_files[i]}'>
+            </td>
+            <td width="100" class="priceBox">
+                <input type='number' id='price${i}' class="form-control" name='price${i}' pattern='(d{3})' readonly min='0' 
+                        value='${cookie_price[i]}'>
+            </td>
+            <td width="100" class="quanBox">
+                <input type='number' class="form-control" min='0' id='quantity${i}' name='quantity${i}' value='0'>
+            </td>
+            <td width="100" class="sumBox">
+                <input type='number' class="form-control" min='0' id='sum${i}' name='sum${i}' value='0' readonly>
+            </td>
+        </tr>
+        `
+
+    // console.log(i)
+
 
 }

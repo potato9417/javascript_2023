@@ -16,6 +16,7 @@
 <body>
     <div id="carouselContainer" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
+        
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselContainer" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -25,6 +26,33 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
+        <div class="carousel-indicators">
+            
+        </div>
+    </div>
+    <div id="cookieOrderContainer">
+
+        <table class="table" id="order_board" style="width:700px;">
+            <tr>
+                <td width="200">상품명</td>
+                <td width="100">단가</td>
+                <td width="100">주문수량</td>
+                <td width="100">상품별 집계</td>
+            </tr>
+    
+            <!-- 상품 주문 현황 -->
+            <tr>
+                <td colspan="4">
+                    <div class="input-group">
+                        <span class="input-group-text">총계 : </span>
+                        <input class="form-control" type="number" id="total_price" 
+                            min="0" readonly />
+                    </div>	   
+                </td>
+            </tr>
+    
+        </table>
+        
     </div>
 </body>
 
