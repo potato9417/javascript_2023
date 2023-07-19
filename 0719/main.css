@@ -1,0 +1,32 @@
+#container {
+    width: 1300px;
+    position: relative;
+}
+#slide_box {
+    width: 1300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between
+}
+
+#container .btns span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 20px;
+    background-color: rgba(198, 72, 248, 0.5);
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+#container .btns span:hover {
+    background-color: rgba(198, 72, 248, 0.8);
+}
+#container .btns span.prev {
+    left: 10px;
+}
+#container .btns span.next {
+    right: 10px;
+}
