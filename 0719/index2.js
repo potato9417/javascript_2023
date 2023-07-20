@@ -3,16 +3,21 @@ let btnPrev = document.querySelector(".prev");
 let btnNext = document.querySelector(".next");
 let slides = [];
 
-// 슬라이드이미지 넣기
-for(i=0;i<5;i++){
-    slides.push(i+1);
-    slide.innerHTML +=
-    `   
-        <li id = ${slides[i]}>
-            <img src="./images/${slides[i]}.jpg">
-        </li>
-    `
+// 슬라이드이미지 넣는 함수
+function putImg(){
+    for(i=0;i<5;i++){
+        slides.push(i+1);
+        slide.innerHTML +=
+        `   
+            <li id = ${slides[i]}>
+                <img src="./images/${slides[i]}.jpg">
+            </li>
+        `
+    }
 }
+
+// 웹실행시 이미지 나열하기
+putImg();
 
 // 이전버튼 클릭시
 btnPrev.addEventListener("click",()=>{ 
@@ -23,14 +28,7 @@ btnPrev.addEventListener("click",()=>{
 
     console.log("이전버튼 클릭 "+slides)
 
-    for(i=0;i<slides.length;i++){
-        slide.innerHTML +=
-        `   
-            <li id = ${slides[i]}>
-                <img src="./images/${slides[i]}.jpg">
-            </li>
-        `
-    }
+    putImg()
 })
 
 // 다음버튼 클릭시
@@ -42,12 +40,5 @@ btnNext.addEventListener("click",()=>{
     
     console.log("다음버튼 클릭 "+slides)
 
-    for(i=0;i<slides.length;i++){
-        slide.innerHTML +=
-        `   
-            <li id = ${slides[i]}>
-                <img src="./images/${slides[i]}.jpg">
-            </li>
-        `
-    }
+    putImg()
 })
