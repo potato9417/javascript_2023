@@ -88,6 +88,11 @@ submitBtn.addEventListener("click",()=>{
 // input입력 후 이벤트 처리
 id.onblur =()=>{ // .onblur => 포커스가 없어졌을때 이벤트발생
     let regexId = /[a-zA-Z]{1}\w{7,19}/;
+    // [a-zA-Z]{1} : 앞글자는 영대소문자로 시작해야한다는 정규식
+    // \w : 영대소문자 & 숫자 & 밑줄문자 => [A-z0-9__]와 같은 뜻 
+    // {7,19} : 8~20자리 글자
+    // 앞글자는 영대소문자로 시작하는 8~20자리의 글자
+    
     if(regexId.test(id.value) == false){
         console.log("아이디를 올바르게 입력해주세요");
 
