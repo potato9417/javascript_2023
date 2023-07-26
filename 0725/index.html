@@ -15,37 +15,40 @@
         </h1>
 
         <!-- 아이디 -->
-        <div id="id_box" class="boxes">
+        <form id="id_box" class="boxes">
             <div class="label_box">
                 <label for="id">아이디</label>
             </div>
             <div class="form_box">
-                <input placeholder="영문 및 숫자 사용(8~20글자)" action="#" id="id" name="id" type="text" value=""></input>
+                <input action="#" id="id" name="id" type="text" value=""></input>
+                <p class="result">영문 및 숫자 사용(8~20글자)</p>
             </div>
-        </div>
+        </form>
 
         <!-- 비밀번호 -->
-        <div id="pw_box" class="boxes">
+        <form id="pw_box" class="boxes">
             <div class="label_box">
                 <label for="pw">비밀번호</label>
             </div>
             <div class="form_box">
-                <input placeholder="최소 1개의 숫자 혹은 특수문자 사용(8~20글자)" action="#" id="pw" name="pw" type="password"></input>
+                <input action="#" id="pw" name="pw" type="password"></input>
+                <p class="result">최소 1개의 숫자 혹은 특수문자 사용(8~20글자)</p>
             </div>
-        </div>
+        </form>
 
         <!-- 이름 -->
-        <div id="name_box" class="boxes">
+        <form id="name_box" class="boxes">
             <div class="label_box">
                 <label for="name">이름</label>
             </div>
             <div class="form_box">
-                <input placeholder="한글 이름 사용" action="#" id="name" name="name" type="text"></input>
+                <input action="#" id="name" name="name" type="text"></input>
+                <p class="result">한글 이름 사용</p>
             </div>
-        </div>
+        </form>
 
         <!-- 성별 -->
-        <div id="gender_box" class="boxes">
+        <form id="gender_box" class="boxes">
             <div class="label_box">
                 <label for="gender">성별</label>
             </div>
@@ -55,30 +58,32 @@
                 <input action="#" id="female" name="gender" type="radio"></input>
                 <label for="female">여자</label>
             </div>
-        </div>
+        </form>
 
         <!-- 이메일 -->
-        <div id="email_box" class="boxes">
+        <form id="email_box" class="boxes">
             <div class="label_box">
                 <label for="">이메일</label>
             </div>
             <div class="form_box">
                 <input action="#" id="email" name="email" type="email" placeholder="ex&#41; abcd&#64;abcd&#46;com"></input>
+                <p class="result"></p>
             </div>
-        </div>
+        </form>
 
         <!-- 핸드폰번호 -->
-        <div id="phone_box" class="boxes">
+        <form id="phone_box" class="boxes">
             <div class="label_box">
                 <label for="phone">핸드폰번호</label>
             </div>
             <div class="form_box">
                 <input action="#" id="phone" name="phone" type="phone" placeholder="ex&#41; 010&#45;1234&#45;5678"></input>
+                <p class="result"></p>
             </div>
-        </div>
+        </form>
 
         <!-- 주소 -->
-        <div id="address_box">
+        <form id="address_box">
             <div class="boxes">
                 <div class="label_box">
                     <label for="adress">주소</label>
@@ -107,23 +112,23 @@
                     <input action="#" id="address2" name="address2" type="text"></input>
                 </div>
             </div>
-        </div>
+        </form>
 
         <!-- 생일 -->
-        <div id="birth_box" class="boxes">
+        <form id="birth_box" class="boxes">
             <div class="label_box">
                 <label for="birth">생일</label>
             </div>
             <div class="form_box">
                 <input action="#" id="birth" name="birth" type="text"></input>
             </div>
-        </div>
+        </form>
 
         <!-- 가입버튼 -->
-        <div id="btns_box" class="boxes">
+        <form id="btns_box" class="boxes">
             <button type="submit" id="submit" name="submit" class="btn">회원가입</button>
             <button type="button" id="reset" name="reset" class="btn">취소</button>
-        </div>
+        </form>
 
     </section>
 

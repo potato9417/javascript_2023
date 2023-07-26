@@ -11,6 +11,8 @@ let birth = document.querySelector("#birth");
 let submitBtn = document.querySelector("#submit");
 let resetBtn = document.querySelector("#reset");
 
+let idResult = document.querySelector("#id_box .result");
+
 let num =1;
 let userInfo = [];
 
@@ -29,14 +31,17 @@ function resetInfo(){
 // 취소버튼 클릭시 모든 입력값 제거
 resetBtn.addEventListener("click",resetInfo())
 
+// 가입버튼 클릭시 값 확인하는 정규식
 submitBtn.addEventListener("click",()=>{
 
+    // 입력값을 확인하는 정규식
     let regexId = /[a-zA-Z]{1}\w{7,19}/;
     let regexPw = /(?=.*[a-zA-Z])((?=.*\d)(?=.*\W)).{8,20}/;
     let regexName = /[가-힣]{2,4}/;
     let regexEmail = /[a-zA-Z0-9_+.-]+@([a-zA-Z0-9-]+\.)+[a-zA-Z0-9]{2,4}/;
     let regexPhone = /(\d{3}).*(\d{3}).*(\d{4})/;
 
+    // 정규식.test(확인할값) => 결과값 : true/false
     if(regexId.test(id.value) == false){
        console.log("아이디를 올바르게 입력해주세요");
     }
@@ -78,3 +83,20 @@ submitBtn.addEventListener("click",()=>{
 
     }
 })
+
+
+// input입력 후 이벤트 처리
+id.onblur =()=>{ // .onblur => 포커스가 없어졌을때 이벤트발생
+    let regexId = /[a-zA-Z]{1}\w{7,19}/;
+    if(regexId.test(id.value) == false){
+        console.log("아이디를 올바르게 입력해주세요");
+
+        idResult.innerText = "아이디를 올바르게 입력해주세요";
+        idResult.style.color = "#f00";
+
+    }
+    else {
+        idResult.style.color = "#999";
+        idResult.innerText = "아이디를 입력하셨습니다";
+    }
+}
