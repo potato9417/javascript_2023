@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="./main.css">
+    <script src="./index.js" defer></script>
+</head>
+<body>
+    <section id="section">
+        <h1 id="title">
+            회원가입
+        </h1>
+
+        <!-- 아이디 -->
+        <div id="id_box" class="boxes">
+            <div class="label_box">
+                <label for="id">아이디</label>
+            </div>
+            <div class="form_box">
+                <input placeholder="영문 및 숫자 사용(8~20글자)" action="#" id="id" name="id" type="text" value=""></input>
+            </div>
+        </div>
+
+        <!-- 비밀번호 -->
+        <div id="pw_box" class="boxes">
+            <div class="label_box">
+                <label for="pw">비밀번호</label>
+            </div>
+            <div class="form_box">
+                <input placeholder="최소 1개의 숫자 혹은 특수문자 사용(8~20글자)" action="#" id="pw" name="pw" type="password"></input>
+            </div>
+        </div>
+
+        <!-- 이름 -->
+        <div id="name_box" class="boxes">
+            <div class="label_box">
+                <label for="name">이름</label>
+            </div>
+            <div class="form_box">
+                <input placeholder="한글 이름 사용" action="#" id="name" name="name" type="text"></input>
+            </div>
+        </div>
+
+        <!-- 성별 -->
+        <div id="gender_box" class="boxes">
+            <div class="label_box">
+                <label for="gender">성별</label>
+            </div>
+            <div class="form_box">
+                <input action="#" id="male" name="gender" type="radio"></input>
+                <label for="male">남자</label>
+                <input action="#" id="female" name="gender" type="radio"></input>
+                <label for="female">여자</label>
+            </div>
+        </div>
+
+        <!-- 이메일 -->
+        <div id="email_box" class="boxes">
+            <div class="label_box">
+                <label for="">이메일</label>
+            </div>
+            <div class="form_box">
+                <input action="#" id="email" name="email" type="email" placeholder="ex&#41; abcd&#64;abcd&#46;com"></input>
+            </div>
+        </div>
+
+        <!-- 핸드폰번호 -->
+        <div id="phone_box" class="boxes">
+            <div class="label_box">
+                <label for="phone">핸드폰번호</label>
+            </div>
+            <div class="form_box">
+                <input action="#" id="phone" name="phone" type="phone" placeholder="ex&#41; 010&#45;1234&#45;5678"></input>
+            </div>
+        </div>
+
+        <!-- 주소 -->
+        <div id="address_box">
+            <div class="boxes">
+                <div class="label_box">
+                    <label for="adress">주소</label>
+                </div>
+                <div class="form_box zip_box">
+                    <input action="#" id="zip" name="zip" type="text"></input>
+                    <div class="btns_box">
+                        <button type="button" id="address_search" name="address_search" class="btn">주소 검색</button>
+                        <button type="button" id="address_delte" name="address_delte" class="btn">주소 삭제</button>
+                    </div>
+                </div>
+            </div>
+            <div class="boxes">
+                <div class="label_box">
+                    <label for="adress">기본 주소</label>
+                </div>
+                <div class="form_box address1_form">
+                    <input action="#" id="address1" name="address1" type="text"></input>
+                </div>
+            </div>
+            <div class="boxes">
+                <div class="label_box">
+                    <label for="adress">상세 주소</label>
+                </div>
+                <div class="form_box">
+                    <input action="#" id="address2" name="address2" type="text"></input>
+                </div>
+            </div>
+        </div>
+
+        <!-- 생일 -->
+        <div id="birth_box" class="boxes">
+            <div class="label_box">
+                <label for="birth">생일</label>
+            </div>
+            <div class="form_box">
+                <input action="#" id="birth" name="birth" type="text"></input>
+            </div>
+        </div>
+
+        <!-- 가입버튼 -->
+        <div id="btns_box" class="boxes">
+            <button type="submit" id="submit" name="submit" class="btn">회원가입</button>
+            <button type="button" id="reset" name="reset" class="btn">취소</button>
+        </div>
+
+    </section>
+
+</body>
+</html>
