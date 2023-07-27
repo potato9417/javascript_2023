@@ -10,6 +10,8 @@ let address2 = document.querySelector("#address2");
 let birth = document.querySelector("#birth");
 let submitBtn = document.querySelector("#submit");
 let resetBtn = document.querySelector("#reset");
+let submitBox = document.querySelector("#submit_box");
+
 
 // 라디오의 체크된 값 불러오기
 let genderVal = document.querySelector('.gender_box .form_box input[name="gender"]:checked');
@@ -70,7 +72,7 @@ function submitInfo(){
         "email":email.value,
         "phone":phone.value,
     }
-    console.log(genderVal)
+    // console.log(genderVal)
     userInfo.push(pushInfo)
     console.log(userInfo)
     resetInfo();
@@ -219,27 +221,51 @@ phone.onblur =()=>{ // .onblur => 포커스가 없어졌을때 이벤트발생
 }
 
 // 가입버튼클릭시
-submitBtn.addEventListener("click",()=>{
+// submitBtn.addEventListener("click",()=>{
+//     // button 클릭시 새로고침 현상발생
+//     // button의 type을 submit이 아닌 button으로 변경하거나
+//     // button을 감싸고 있는 부모 태그를 form이 아닌 div로 변경
+//     // => submit으로 백단으로 보내야 하므로 두번째 방법 사용
+//     // https://devhoma.tistory.com/90
+
+//     if( regexId.test(id.value),
+//         regexPw.test(pw.value),
+//         regexName.test(userName.value),
+//         regexEmail.test(email.value),
+//         regexPhone.test(phone.value) == false) {
+
+//         console.log("값을 다시 입력해주세요");
+//         errorBlock(idIsError);
+//         resetInfo();
+//     }
+//     else {
+//         submitInfo();
+//     }
+// });
+    
+submitBox.addEventListener("submit",(e)=>{
     // button 클릭시 새로고침 현상발생
-    // button의 type을 submit이 아닌 button으로 변경하거나
-    // button을 감싸고 있는 부모 태그를 form이 아닌 div로 변경
-    // => submit으로 백단으로 보내야 하므로 두번째 방법 사용
+    // 1) button의 type을 submit이 아닌 button으로 변경
+    // 2) button을 감싸고 있는 부모 태그를 form이 아닌 div로 변경
+    // 3) e.preventDefault(); 사용
     // https://devhoma.tistory.com/90
 
-    if( regexId.test(id.value),
-        regexPw.test(pw.value),
-        regexName.test(userName.value),
-        regexEmail.test(email.value),
-        regexPhone.test(phone.value) == false) {
+    // if( regexId.test(id.value),
+    //     regexPw.test(pw.value),
+    //     regexName.test(userName.value),
+    //     regexEmail.test(email.value),
+    //     regexPhone.test(phone.value) == false) {
 
-        console.log("값을 다시 입력해주세요");
-        errorBlock(idIsError);
-        resetInfo();
-    }
-    else {
-        submitInfo();
-    }
-    // submitInfo();
+    //     console.log("값을 다시 입력해주세요");
+    //     errorBlock(idIsError);
+    //     resetInfo();
+    // }
+    // else {
+    //     submitInfo();
+    // 
+    e.preventDefault()
+    submitInfo();
 });
     
+
 
