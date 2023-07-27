@@ -1,14 +1,26 @@
+@charset "UTF-8";
+
+body {
+    background-color: #f2f2f2;
+}
 #section {
-    width: 800px;
+    position: relative;
+    width: 840px;
+    height: 100vh;
     margin: auto;
-    margin-top: 30px;
+    padding: 120px 20px 0;
+    background-color: #fff;
 }
 #title {
+    position: absolute;
+    width: 100%;
     font-size: 28px;
+    top: 0;
+    left: 0;
     color: #fff;
     background-color: #2f749c;
     text-align: center;
-    padding: 10px 0;
+    padding: 15px 0;
     margin-bottom: 30px;
 }
 /* 공통속성 */
