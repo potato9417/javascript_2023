@@ -153,26 +153,22 @@ resetBtn.addEventListener("click",resetInfo())
 
 
 // input입력 후 이벤트 처리
-// id.onblur =()=>{ // .onblur => 포커스가 없어졌을때 이벤트발생
-    
-//     if(regexId.test(id.value) == false){
-//         console.log("아이디를 올바르게 입력해주세요");
-
-//         idResult.innerText = "아이디를 올바르게 입력해주세요";
-//         idResult.style.color = "#f00";
-//         idIsError = true;
-
-//     }
-//     else {
-//         idResult.style.color = "#999";
-//         idResult.innerText = "아이디를 입력하셨습니다";
-//     }
-// }
 id.onblur =()=>{ // .onblur => 포커스가 없어졌을때 이벤트발생
-    chekcedError(id, "아이디");
-
     
+    if(regexId.test(id.value) == false){
+        console.log("아이디를 올바르게 입력해주세요");
+
+        idResult.innerText = "아이디를 올바르게 입력해주세요";
+        idResult.style.color = "#f00";
+        idIsError = true;
+
+    }
+    else {
+        idResult.style.color = "#999";
+        idResult.innerText = "아이디를 입력하셨습니다";
+    }
 }
+
 
 pw.onblur =()=>{ // .onblur => 포커스가 없어졌을때 이벤트발생
     
