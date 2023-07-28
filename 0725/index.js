@@ -14,7 +14,7 @@ let submitBox = document.querySelector("#submit_box");
 
 
 // 라디오의 체크된 값 불러오기
-let genderVal = document.querySelector('.gender_box .form_box input[name="gender"]:checked');
+let genderVal = document.getElementById('.gender_box .form_box input[name="gender"]:checked');
 
 // 입력값에 따른 결과 값
 let idResult = document.querySelector("#id_box .result");
@@ -72,7 +72,7 @@ function submitInfo(){
         "email":email.value,
         "phone":phone.value,
     }
-    // console.log(genderVal)
+    console.log(genderVal)
     userInfo.push(pushInfo)
     console.log(userInfo)
     resetInfo();
@@ -84,6 +84,22 @@ function errorBlock(error){
         console.log(error)
     }
     
+}
+
+// 입력값 확인 함수화
+function chekcedError(category, categoryKor){
+    if(regexId.test(category.value) == false){
+        console.log(`${categoryKor}를 올바르게 입력해주세요`);
+
+        idResult.innerText = `${categoryKor}를 올바르게 입력해주세요`;
+        idResult.style.color = "#f00";
+        id.style.backgroundColor="#ffe4e4";
+    }
+    else {
+        idResult.style.color = "#999";
+        idResult.innerText = `${categoryKor}를 입력하셨습니다`;
+        idIsError = false;
+    }
 }
 
 // 취소버튼 클릭시 모든 입력값 제거
@@ -137,20 +153,25 @@ resetBtn.addEventListener("click",resetInfo())
 
 
 // input입력 후 이벤트 처리
-id.onblur =()=>{ // .onblur => 포커스가 없어졌을때 이벤트발생
+// id.onblur =()=>{ // .onblur => 포커스가 없어졌을때 이벤트발생
     
-    if(regexId.test(id.value) == false){
-        console.log("아이디를 올바르게 입력해주세요");
+//     if(regexId.test(id.value) == false){
+//         console.log("아이디를 올바르게 입력해주세요");
 
-        idResult.innerText = "아이디를 올바르게 입력해주세요";
-        idResult.style.color = "#f00";
-        idIsError = true;
+//         idResult.innerText = "아이디를 올바르게 입력해주세요";
+//         idResult.style.color = "#f00";
+//         idIsError = true;
 
-    }
-    else {
-        idResult.style.color = "#999";
-        idResult.innerText = "아이디를 입력하셨습니다";
-    }
+//     }
+//     else {
+//         idResult.style.color = "#999";
+//         idResult.innerText = "아이디를 입력하셨습니다";
+//     }
+// }
+id.onblur =()=>{ // .onblur => 포커스가 없어졌을때 이벤트발생
+    chekcedError(id, "아이디");
+
+    
 }
 
 pw.onblur =()=>{ // .onblur => 포커스가 없어졌을때 이벤트발생
@@ -220,7 +241,7 @@ phone.onblur =()=>{ // .onblur => 포커스가 없어졌을때 이벤트발생
     }
 }
 
-// 가입버튼클릭시
+// 가입버튼클릭시 (click 이벤트발생시)
 // submitBtn.addEventListener("click",()=>{
 //     // button 클릭시 새로고침 현상발생
 //     // button의 type을 submit이 아닌 button으로 변경하거나
@@ -243,6 +264,7 @@ phone.onblur =()=>{ // .onblur => 포커스가 없어졌을때 이벤트발생
 //     }
 // });
     
+// 가입버튼 클릭시 (submit 이벤트 발생시)
 submitBox.addEventListener("submit",(e)=>{
     // button 클릭시 새로고침 현상발생
     // 1) button의 type을 submit이 아닌 button으로 변경
