@@ -14,7 +14,8 @@ let submitBox = document.querySelector("#submit_box");
 
 
 // 라디오의 체크된 값 불러오기
-let genderVal = document.getElementById('.gender_box .form_box input[name="gender"]:checked');
+let genderVal;
+let genderValArr = document.querySelectorAll('#gender_box .form_box input');
 
 // 입력값에 따른 결과 값
 let idResult = document.querySelector("#id_box .result");
@@ -37,11 +38,6 @@ let phoneIsError = false;
 
 // 정규식
 const regexId = /^[a-zA-Z]{1}\w{7,19}$/;
-    // /^ $/ : 정규식의 시작과 끝을 나타냄
-    // [a-zA-Z]{1} : 앞글자는 영대소문자로 시작해야한다는 정규식
-    // \w : 영대소문자 & 숫자 & 밑줄문자 => [A-z0-9__]와 같은 뜻 
-    // {7,19} : 8~20자리 글자
-    // 앞글자는 영대소문자로 시작하는 8~20자리의 글자
 const regexPw = /^(?=.*[a-zA-Z])((?=.*\d)(?=.*\W)).{8,20}$/;
 const regexName = /^[가-힣]{2,4}$/;
 const regexEmail = /^[a-zA-Z0-9_+.-]+@([a-zA-Z0-9-]+\.)+[a-zA-Z0-9]{2,4}$/;
@@ -62,19 +58,26 @@ function resetInfo(){
 
 // 정보 추출
 function submitInfo(){
+    for(i=0;i<genderValArr.length;i++){
+        if(genderValArr[i].checked){
+            // console.log(genderValArr[i].value)
+            genderVal = genderValArr[i].value
+        }
+    }
+
     num+1;
     pushInfo = {
         "key":num,
         "id":id.value,
         "pw":pw.value,
         "userName":userName.value,
-        
+        "gender":genderVal,
         "email":email.value,
         "phone":phone.value,
     }
-    console.log(genderVal)
+    
     userInfo.push(pushInfo)
-    console.log(userInfo)
+    console.log(pushInfo)
     resetInfo();
 }
 
@@ -281,7 +284,7 @@ submitBox.addEventListener("submit",(e)=>{
     // else {
     //     submitInfo();
     // 
-    e.preventDefault()
+    e.preventDefault();
     submitInfo();
 });
     
