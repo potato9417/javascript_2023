@@ -11,11 +11,14 @@ let birth = document.querySelector("#birth");
 let submitBtn = document.querySelector("#submit");
 let resetBtn = document.querySelector("#reset");
 let submitBox = document.querySelector("#submit_box");
+let addressSearchBox = document.getElementById("address_search")
 
 
 // 라디오의 체크된 값 불러오기
 let genderVal;
 let genderValArr = document.querySelectorAll('#gender_box .form_box input');
+let genderValNum = 0;
+
 
 // 입력값에 따른 결과 값
 let idResult = document.querySelector("#id_box .result");
@@ -30,18 +33,19 @@ let userInfo = [];
 let pushInfo={};
 
 // 결과값에 따른 boolean
-let idIsError = false;
-let pwIsError = false;
-let nameIsError = false;
-let emailIsError = false;
-let phoneIsError = false;
+let idIsError = true;
+let pwIsError = true;
+let nameIsError = true;
+let genderIsError = true;
+let emailIsError = true;
+let phoneIsError = true;
 
 // 정규식
 const regexId = /^[a-zA-Z]{1}\w{7,19}$/;
 const regexPw = /^(?=.*[a-zA-Z])((?=.*\d)(?=.*\W)).{8,20}$/;
-const regexName = /^[가-힣]{2,4}$/;
+const regexName = /^[가-힣]{2,50}$/;
 const regexEmail = /^[a-zA-Z0-9_+.-]+@([a-zA-Z0-9-]+\.)+[a-zA-Z0-9]{2,4}$/;
-const regexPhone = /^(\d{3}).*(\d{3}).*(\d{4})$/;
+const regexPhone = /^(\d{3}).*(\d{4}).*(\d{4})$/;
 
 // 리셋
 function resetInfo(){
@@ -56,15 +60,9 @@ function resetInfo(){
     birth.value = "";
 }
 
+
 // 정보 추출
 function submitInfo(){
-    for(i=0;i<genderValArr.length;i++){
-        if(genderValArr[i].checked){
-            // console.log(genderValArr[i].value)
-            genderVal = genderValArr[i].value
-        }
-    }
-
     num+1;
     pushInfo = {
         "key":num,
@@ -81,13 +79,6 @@ function submitInfo(){
     resetInfo();
 }
 
-// 오류일 경우 표시
-function errorBlock(error){
-    if(error) {
-        console.log(error)
-    }
-    
-}
 
 // 입력값 확인 함수화
 function chekcedError(category, categoryKor){
@@ -163,12 +154,12 @@ id.onblur =()=>{ // .onblur => 포커스가 없어졌을때 이벤트발생
 
         idResult.innerText = "아이디를 올바르게 입력해주세요";
         idResult.style.color = "#f00";
-        idIsError = true;
 
     }
     else {
         idResult.style.color = "#999";
         idResult.innerText = "아이디를 입력하셨습니다";
+        idIsError = false;
     }
 }
 
@@ -180,13 +171,12 @@ pw.onblur =()=>{ // .onblur => 포커스가 없어졌을때 이벤트발생
 
         pwResult.innerText = "비밀번호를 올바르게 입력해주세요";
         pwResult.style.color = "#f00";
-        pwIsError = true;
-
 
     }
     else {
         pwResult.style.color = "#999";
         pwResult.innerText = "비밀번호를 입력하셨습니다";
+        pwIsError = false;
     }
 }
 
@@ -197,13 +187,12 @@ userName.onblur =()=>{ // .onblur => 포커스가 없어졌을때 이벤트발�
 
         nameResult.innerText = "이름을 올바르게 입력해주세요";
         nameResult.style.color = "#f00";
-        nameIsError = true;
-
 
     }
     else {
         nameResult.style.color = "#999";
         nameResult.innerText = "이름을 입력하셨습니다";
+        nameIsError = false;
     }
 }
 
@@ -214,13 +203,12 @@ email.onblur =()=>{ // .onblur => 포커스가 없어졌을때 이벤트발생
 
         emailResult.innerText = "이메일을 올바르게 입력해주세요";
         emailResult.style.color = "#f00";
-        emailIsError = true;
-
 
     }
     else {
         emailResult.style.color = "#999";
         emailResult.innerText = "이메일을 입력하셨습니다";
+        emailIsError = false;
     }
 }
 
@@ -231,14 +219,49 @@ phone.onblur =()=>{ // .onblur => 포커스가 없어졌을때 이벤트발생
 
         phoneResult.innerText = "번호를 올바르게 입력해주세요";
         phoneResult.style.color = "#f00";
-        phoneIsError = true;
 
     }
     else {
         phoneResult.style.color = "#999";
         phoneResult.innerText = "번호를 입력하셨습니다";
+        phoneIsError = false;
     }
 }
+
+
+for(i=0;i<genderValArr.length;i++){
+    genderValArr[i].addEventListener("click",function(){
+        // console.log(this.checked +"hihi")
+        // console.log(this.value);
+        
+        genderVal = this.value
+        if(this.checked){
+            genderIsError = false
+        }
+        
+    })
+    
+}
+
+
+function addsSearchBtn(){
+    console.log("click")
+    new daum.Postcode({
+        oncomplete: function(data) {
+            //data는 사용자가 선택한 주소 정보를 담고 있는 객체이며, 상세 설명은 아래 목록에서 확인하실 수 있습니다.
+
+            let zoncodeAddr = data.zonecode // 우편번호
+            let roadAddr = data.roadAddress; // 도로명 주소 변수
+
+        }
+    })
+}
+    
+
+
+
+
+
 
 // 가입버튼클릭시 (click 이벤트발생시)
 // submitBtn.addEventListener("click",()=>{
@@ -270,22 +293,18 @@ submitBox.addEventListener("submit",(e)=>{
     // 2) button을 감싸고 있는 부모 태그를 form이 아닌 div로 변경
     // 3) e.preventDefault(); 사용
     // https://devhoma.tistory.com/90
-
-    // if( regexId.test(id.value),
-    //     regexPw.test(pw.value),
-    //     regexName.test(userName.value),
-    //     regexEmail.test(email.value),
-    //     regexPhone.test(phone.value) == false) {
-
-    //     console.log("값을 다시 입력해주세요");
-    //     errorBlock(idIsError);
-    //     resetInfo();
-    // }
-    // else {
-    //     submitInfo();
-    // 
     e.preventDefault();
-    submitInfo();
+    console.log(idIsError+" "+pwIsError+" "+nameIsError+" "+emailIsError+" "+phoneIsError+" "+genderIsError)
+    if(idIsError, pwIsError, nameIsError, emailIsError, phoneIsError, genderIsError == false) {
+        
+        submitInfo();
+    }
+    else {
+        console.log("값을 다시 입력해주세요");
+    }
+
+
+    // submitInfo();
 });
     
 
