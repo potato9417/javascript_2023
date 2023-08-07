@@ -26,6 +26,7 @@ let pwResult = document.querySelector("#pw_box .result");
 let nameResult = document.querySelector("#name_box .result");
 let emailResult = document.querySelector("#email_box .result");
 let phoneResult = document.querySelector("#phone_box .result");
+let birthResult = document.querySelector("#birth_box .result");
 
 // 결과 값 노출
 let num =1;
@@ -46,6 +47,7 @@ const regexPw = /^(?=.*[a-zA-Z])((?=.*\d)(?=.*\W)).{8,20}$/;
 const regexName = /^[가-힣]{2,50}$/;
 const regexEmail = /^[a-zA-Z0-9_+.-]+@([a-zA-Z0-9-]+\.)+[a-zA-Z0-9]{2,4}$/;
 const regexPhone = /^(\d{3}).*(\d{4}).*(\d{4})$/;
+const regexBirthdy = /^([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))$/;
 
 // 리셋
 function resetInfo(){
@@ -228,7 +230,6 @@ phone.onblur =()=>{ // .onblur => 포커스가 없어졌을때 이벤트발생
     }
 }
 
-
 for(i=0;i<genderValArr.length;i++){
     genderValArr[i].addEventListener("click",function(){
         // console.log(this.checked +"hihi")
@@ -242,6 +243,23 @@ for(i=0;i<genderValArr.length;i++){
     })
     
 }
+
+birth.onblur =()=>{
+    if(regexBirthdy.test(birth.value) == false){
+        console.log("번호를 올바르게 입력해주세요");
+
+        birthResult.innerText = "생년월일을 올바르게 입력해주세요";
+        birthResult.style.color = "#f00";
+
+    }
+    else {
+        birthResult.style.color = "#999";
+        birthResult.innerText = "생년월일을 입력하셨습니다";
+        birthIsError = false;
+    }
+}
+
+
 
 
 function addsSearchBtn(){
