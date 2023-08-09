@@ -16,7 +16,7 @@
         </h1>
 
         <!-- 아이디 -->
-        <form id="id_box" class="boxes">
+        <form id="id_box"  method="get" class="boxes">
             <div class="label_box">
                 <label for="id">아이디</label>
             </div>
@@ -54,7 +54,7 @@
                 <label for="gender">성별</label>
             </div>
             <div class="form_box">
-                <input type="radio" id="male" name="gender" value="male" />
+                <input type="radio" id="male" name="gender" value="male" checked="checked"/>
                 <label for="male">남자</label>
                 <input type="radio" id="female" name="gender" value="female" />
                 <label for="female">여자</label>
@@ -92,7 +92,7 @@
                 <div class="form_box zip_box">
                     <input action="#" id="zip" name="zip" type="text"></input>
                     <div class="btns_box">
-                        <button type="button" onclick="addsSearchBtn()" id="address_search" name="address_search" class="btn">주소 검색</button>
+                        <button type="button" onclick="searchAddress()" id="address_search" name="address_search" class="btn">주소 검색</button>
                         <button type="button" id="address_delete" name="address_delete" class="btn">주소 삭제</button>
                     </div>
                 </div>

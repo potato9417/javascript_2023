@@ -40,6 +40,7 @@ let nameIsError = true;
 let genderIsError = true;
 let emailIsError = true;
 let phoneIsError = true;
+let birthIsError = true;
 
 // 정규식
 const regexId = /^[a-zA-Z]{1}\w{7,19}$/;
@@ -260,26 +261,57 @@ birth.onblur =()=>{
 }
 
 
+function searchAddressEvent() {
+    new DocumentFragment.Postcode({
+        oncomple: function(data){
+            let fullAddr = data.roadAddress; // 최종 도로명 주소
+            let fullAddrJibun = data.autoJibunAddress; // 최종 지번주소
+            let extraAddr = data.bname; // 조합형 주소
 
+            // 지번 미입력시 자동 입력 지번 주소 활용
+            fullAddrJibun = data.jibunAddress == '' ? data.autoJibunAddress : data.jibunAddress;
 
-function addsSearchBtn(){
-    console.log("click")
-    new daum.Postcode({
-        oncomplete: function(data) {
-            //data는 사용자가 선택한 주소 정보를 담고 있는 객체이며, 상세 설명은 아래 목록에서 확인하실 수 있습니다.
-
-            let zoncodeAddr = data.zonecode // 우편번호
-            let roadAddr = data.roadAddress; // 도로명 주소 변수
-
+            var output = '';
+            for (var key in data) {
+                output += key + ":" +  data[key]+"\n";
+            }
         }
+
     })
 }
-    
 
 
+function checkedError(){
+    console.log("error")
+    if(idIsError){
+        idResult.innerText = "아이디를 올바르게 입력해주세요";
+        idResult.style.color = "#f00";
 
+        if(pwIsError){
+            pwResult.innerText = "비밀번호를 올바르게 입력해주세요";
+            pwResult.style.color = "#f00";
 
+            if(emailIsError){
+                emailResult.innerText = "이메일을 올바르게 입력해주세요";
+                emailResult.style.color = "#f00";
 
+                if(nameIsError){
+                    nameResult.innerText = "이름을 올바르게 입력해주세요";
+                    nameResult.style.color = "#f00";
+
+                    if(birthIsError){
+                        birthResult.innerText = "생년월일을 올바르게 입력해주세요";
+                        birthResult.style.color = "#f00";
+                    }
+                }
+
+            }
+
+        }
+
+    }
+
+}
 
 // 가입버튼클릭시 (click 이벤트발생시)
 // submitBtn.addEventListener("click",()=>{
@@ -313,12 +345,13 @@ submitBox.addEventListener("submit",(e)=>{
     // https://devhoma.tistory.com/90
     e.preventDefault();
     console.log(idIsError+" "+pwIsError+" "+nameIsError+" "+emailIsError+" "+phoneIsError+" "+genderIsError)
-    if(idIsError, pwIsError, nameIsError, emailIsError, phoneIsError, genderIsError == false) {
+    if(idIsError, pwIsError, nameIsError, emailIsError, phoneIsError, genderIsError, birthIsError == false) {
         
         submitInfo();
     }
     else {
         console.log("값을 다시 입력해주세요");
+        checkedError();
     }
 
 
