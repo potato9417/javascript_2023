@@ -1,0 +1,41 @@
+#section {
+    position: relative;
+    width: 600px;
+    height: 100vh;
+    margin: auto;
+    padding: 120px 20px 0;
+    background-color: #fff;
+}
+#title {
+    position: absolute;
+    width: 100%;
+    font-size: 28px;
+    top: 0;
+    left: 0;
+    color: #fff;
+    background-color: #2f749c;
+    text-align: center;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+/* 버튼 공통속성 */
+#submit_box {
+    display: flex;
+    justify-content: space-evenly;
+}
+.btn {
+    width: 250px;
+    height: 35px;
+    background-color: #2f749c;
+    color: #fff;
+    border-radius: 5px;
+    margin-right: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #fff;
+    color: #2f749c;
+    font-weight: bold;
+    border: 1px solid #2f749c;
+}
